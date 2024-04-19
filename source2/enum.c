@@ -1,0 +1,6 @@
+enum ERRORS{
+	FINE = 0,
+	NULL_POINTER = 1,
+	OUT_OF_BOUNDS = 2,
+	WRAPPER_EXIT = 3,
+};
