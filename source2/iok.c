@@ -19,6 +19,25 @@ int getInt(int *path, int min, int max){
 	return 0;
 }
 
+int getUns(unsigned *path, unsigned min, unsigned max){
+	int sres = scanf("%u", path);
+	while ((sres != 1) || (*path < min) || (*path > max)){
+		switch(sres){
+			case EOF:
+				return EOF;
+			case 0:
+				scanf("%*[^\n]");
+				printf("Некорректный ввод. Введите число\n");
+				break;
+			case 1:
+				printf("Некорректный ввод. Число не попадает в заданный диапазон\n");
+				break;
+		}
+		sres = scanf("%u", path);
+	}
+	return 0;
+}
+
 int getIntFragile(int *path, int min, int max){
 	int sres = scanf("%d", path);
 	while ((sres != 1) || (*path < min) || (*path > max)){
