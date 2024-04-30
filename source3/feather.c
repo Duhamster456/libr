@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int fea_strlen(char *str){
+int fea_strlen(const char *str){
 	int i = 0;
 	while(str[i] != '\0') i++;
 	return i;
 }
 
-char* fea_cpy(void *where, void *what, int n){
+char* fea_cpy(void *where, const void *what, int n){
 	for(int i = 0; i < n; i++){
 		((unsigned char*)where)[i] = ((unsigned char*)what)[i];
 	}
@@ -154,4 +154,12 @@ int fea_str_comp(const char* str1, const char* str2){
 		i++;
 	}
 	return res;
+}
+
+char *fea_cat(char *str1, const char *str2){
+	int len_1 = fea_strlen(str1);
+	int len_2 = fea_strlen(str2);
+	str1 = realloc(str1, len_1 + len_2 + 1);
+	fea_cpy(str1 + len_1, str2, len_2 + 1);
+	return str1;
 }

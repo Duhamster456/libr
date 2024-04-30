@@ -56,6 +56,24 @@ int getIntFragile(int *path, int min, int max){
 	return 0;
 }
 
+int getUnsFragile(unsigned *path, unsigned min, unsigned max){
+	int sres = scanf("%u", path);
+	while ((sres != 1) || (*path < min) || (*path > max)){
+		switch(sres){
+			case EOF:
+				return EOF;
+			case 0:
+				scanf("%*[^\n]");
+				return 1;
+			case 1:
+				printf("Некорректный ввод. Число не попадает в заданный диапазон\n");
+				break;
+		}
+		sres = scanf("%u", path);
+	}
+	return 0;
+}
+
 int fgetIntFragile(FILE* file, int *path, int min, int max){
 	int sres = fscanf(file, "%d", path);
 	while ((sres != 1) || (*path < min) || (*path > max)){
