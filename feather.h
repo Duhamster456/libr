@@ -12,6 +12,6 @@ int fea_spn(const char* str1, const char* str2);
 int fea_cspn(const char* str1, const char* str2);
 int fea_contains(const char* str, const char x);
 int fea_str_comp(const char* str1, const char* str2);
-char *fea_cat(char *str1, const char *str2)
+char *fea_cat(char *str1, const char *str2);
 
 #endif
